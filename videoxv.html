@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Responsive Video Playlist Tutorial</title>
+
+   <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+      * {
+         font-family: 'Poppins', sans-serif;
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+         outline: none;
+         border: none;
+         text-decoration: none;
+         text-transform: capitalize;
+      }
+
+      body {
+         background-color: rgb(255, 255, 255);
+         padding: 0;
+         margin: 0;
+         overflow: hidden;
+      }
+
+      .banner {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         background-color: #000000;
+         padding: 10px;
+         position: fixed;
+         top: 0;
+         left: 0;
+         right: 0;
+      }
+
+      .banner-options {
+        text-align: center;
+         display: flex;
+         gap: 20px;
+      }
+
+      .option {
+         color: #fff;
+         cursor: pointer;
+         transition: color 0.3s;
+      }
+
+      .option:hover {
+         color: #464646;
+      }
+
+      .container {
+         max-width: 1200px;
+         margin: 0 auto;
+         display: flex;
+         flex-wrap: wrap;
+         align-items: flex-start;
+         gap: 20px;
+         padding-top: 60px;
+      }
+
+      .container .main-video-container {
+         flex: 1 1 700px;
+         border-radius: 5px;
+         box-shadow: 0 5px 15px rgba(0, 0, 0, .1);
+         background-color: #8b8686;
+         padding: 15px;
+      }
+
+      .container .main-video-container .main-video {
+         margin-bottom: 7px;
+         border-radius: 5px;
+         width: 100%;
+         height: 500px;
+      }
+
+      .container .main-video-container .main-vid-title {
+         font-size: 20px;
+         color: #444;
+      }
+
+      .container .video-list-container {
+         flex: 1 1 350px;
+         height: 485px;
+         overflow-y: scroll;
+         border-radius: 5px;
+         box-shadow: 0 5px 15px rgba(0, 0, 0, .1);
+         background-color: #747373;
+         padding: 15px;
+      }
+
+      .container .video-list-container::-webkit-scrollbar {
+         width: 10px;
+      }
+
+      .container .video-list-container::-webkit-scrollbar-track {
+         background-color: #8b8686;
+         border-radius: 5px;
+      }
+
+      .container .video-list-container::-webkit-scrollbar-thumb {
+         background-color: #444;
+         border-radius: 5px;
+      }
+
+      .container .video-list-container .list {
+         display: flex;
+         align-items: center;
+         gap: 15px;
+         padding: 10px;
+         background-color: #eee;
+         cursor: pointer;
+         border-radius: 5px;
+         margin-bottom: 10px;
+      }
+
+      .container .video-list-container .list:last-child {
+         margin-bottom: 0;
+      }
+
+      .container .video-list-container .list.active {
+         background-color: #444;
+      }
+
+      .container .video-list-container .list.active .list-title {
+         color: #fff;
+      }
+
+      .container .video-list-container .list .list-thumbnail {
+         width: 100px;
+         height: 75px;
+         border-radius: 5px;
+      }
+
+      .container .video-list-container .list .list-title {
+         font-size: 17px;
+         color: #444;
+      }
+
+      @media (max-width: 1200px) {
+         .container {
+            margin: 0;
+         }
+      }
+
+      @media (max-width: 450px) {
+         .container .main-video-container .main-vid-title {
+            font-size: 15px;
+            text-align: center;
+         }
+
+         .container .video-list-container .list {
+            flex-flow: column;
+            gap: 10px;
+         }
+
+         .container .video-list-container .list .list-thumbnail {
+            width: 100%;
+         }
+
+         .container .video-list-container .list .list-title {
+            font-size: 15px;
+            text-align: center;
+         }
+      }
+   </style>
+</head>
+<body>
+
+<!-- Banner -->
+
+<div class="banner">
+    <div class="banner-options">
+       <div class="option" onclick="window.location.href='index.html'">Menú Principal</div>
+       <div class="option" onclick="window.location.href='xvimg.html'">Imagenes de Xv Años</div>
+       <div class="option" onclick="window.location.href='about.html'">Servicios</div>
+    </div>
+ </div>
+ 
+<div class="container">
+   <div class="main-video-container">
+      <video src="/startbootstrap-business-casual-gh-pages/assets/videos/xv/7.mp4" loop controls class="main-video" controls controlsList="nodownload"></video>
+      <h3 class="main-vid-title">Reproducir 1</h3>
+   </div>
+
+   <div class="video-list-container">
+      <div class="list active">
+         <img src="/startbootstrap-business-casual-gh-pages/assets/img/15.webp" class="list-thumbnail" alt="Thumbnail 1" onclick="playVideo('/startbootstrap-business-casual-gh-pages/assets/videos/xv/2.mp4', 'Trabajo de Xv Años')"controls controlsList="nodownload">
+         <h3 class="list-title">Reproducir 2</h3>
+      </div>
+
+      <div class="list">
+         <img src="/startbootstrap-business-casual-gh-pages/assets/img/15.webp" class="list-thumbnail" alt="Thumbnail 2" onclick="playVideo('/startbootstrap-business-casual-gh-pages/assets/videos/xv/3.mp4', 'Trabajo de Xv Años')"controls controlsList="nodownload">
+         <h3 class="list-title">Reproducir 3</h3>
+      </div>
+
+      
+      <div class="list">
+        <img src="/startbootstrap-business-casual-gh-pages/assets/img/15.webp" class="list-thumbnail" alt="Thumbnail 2" onclick="playVideo('/startbootstrap-business-casual-gh-pages/assets/videos/xv/4.mp4', 'Trabajo de Xv Años')"controls controlsList="nodownload">
+        <h3 class="list-title">Reproducir 4</h3>
+     </div>
+
+     
+     <div class="list">
+        <img src="/startbootstrap-business-casual-gh-pages/assets/img/15.webp" class="list-thumbnail" alt="Thumbnail 2" onclick="playVideo('/startbootstrap-business-casual-gh-pages/assets/videos/xv/5.mp4', 'Trabajo de Xv Años')"controls controlsList="nodownload">
+        <h3 class="list-title">Reproducir 5</h3>
+     </div>
+
+     
+     <div class="list">
+        <img src="/startbootstrap-business-casual-gh-pages/assets/img/15.webp" class="list-thumbnail" alt="Thumbnail 2" onclick="playVideo('/startbootstrap-business-casual-gh-pages/assets/videos/xv/6.mp4', 'Trabajo de Xv Años')"controls controlsList="nodownload">
+        <h3 class="list-title">Reproducir 6</h3>
+     </div>
+
+     
+     <div class="list">
+        <img src="/startbootstrap-business-casual-gh-pages/assets/img/15.webp" class="list-thumbnail" alt="Thumbnail 2" onclick="playVideo('/startbootstrap-business-casual-gh-pages/assets/videos/xv/1.mp4', 'Trabajo de Xv Años')"controls controlsList="nodownload">
+        <h3 class="list-title">Reproducir 7</h3>
+     </div>
+
+    
+      
+
+      <!-- Repite el patrón para otras listas -->
+
+   </div>
+</div>
+
+<script>
+   function playVideo(src, title) {
+      let mainVideo = document.querySelector('.main-video-container .main-video');
+      let mainVideoTitle = document.querySelector('.main-video-container .main-vid-title');
+      mainVideo.src = src;
+      mainVideo.play();
+      mainVideoTitle.innerHTML = title;
+   }
+</script>
+
+</body>
+</html>
